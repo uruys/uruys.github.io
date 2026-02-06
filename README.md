@@ -8,12 +8,12 @@ Orientation : neurosciences computationnelles, bioinformatique,
 intelligence artificielle appliquée au biomédical
 
 [Accueil](https://uruys.github.io) |
-[Parcours](https://uruys.github.io/parcours) |
-[Projets](https://uruys.github.io/projets) |
-[Compétences](https://uruys.github.io/competences) |
-[Certifications](https://uruys.github.io/certifications) |
-[Axe](https://uruys.github.io/axe) |
-[Contact](https://uruys.github.io/contact)
+[Parcours](https://uruys.github.io/parcours.html) |
+[Projets](https://uruys.github.io/projets.html) |
+[Compétences](https://uruys.github.io/competences.html) |
+[Certifications](https://uruys.github.io/certifications.html) |
+[Axe](https://uruys.github.io/axe.html) |
+[Contact](https://uruys.github.io/contact.html)
 
 ## Objectif académique
 M’orienter vers la neuro-ingénierie et les interfaces cerveau-machine,
