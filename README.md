@@ -2,8 +2,8 @@ Portfolio académique – neurosciences computationnelles, bioinformatique et an
 
 # Profil académique
 Étudiante en Licence 3 Sciences de la Vie  
-Orientation : neurosciences computationnelles, bioinformatique,
-intelligence artificielle appliquée au biomédical
+Spécialisation : neurosciences computationnelles, bioinformatique, IA appliquée au biomédical
+
 
 [Accueil](https://uruys.github.io) |
 [Parcours](https://uruys.github.io/parcours.html) |
@@ -21,8 +21,6 @@ afin de permettre le contrôle de systèmes et les interactions
 humain-machine.
 
 ## Présentation
-Intérêt pour l’analyse computationnelle de données biologiques,
-les neurosciences et les approches quantitatives appliquées
-à la santé.
+Intérêt marqué pour l’exploitation quantitative de données biologiques complexes, en particulier les signaux neuronaux, à l’interface entre neurosciences, mathématiques appliquées et intelligence artificielle.
 
-# uruys.github.io
+
