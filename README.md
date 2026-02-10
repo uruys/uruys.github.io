@@ -1,8 +1,6 @@
-# uruys.github.io
 Portfolio académique – neurosciences computationnelles, bioinformatique et analyse de données biologiques
 
-# Rûmeysa CAN
-
+# Profil académique
 Étudiante en Licence 3 Sciences de la Vie  
 Orientation : neurosciences computationnelles, bioinformatique,
 intelligence artificielle appliquée au biomédical
@@ -26,3 +24,5 @@ humain-machine.
 Intérêt pour l’analyse computationnelle de données biologiques,
 les neurosciences et les approches quantitatives appliquées
 à la santé.
+
+# uruys.github.io
