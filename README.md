@@ -12,6 +12,7 @@ Spécialisation : neurosciences computationnelles, bioinformatique, IA appliqué
 [Certifications](https://uruys.github.io/certifications.html) |
 [Axe](https://uruys.github.io/axe.html) |
 [Contact](https://uruys.github.io/contact.html)
+uruys.github.io
 
 ## Objectif académique
 M’orienter vers la neuro-ingénierie et les interfaces cerveau-machine,
