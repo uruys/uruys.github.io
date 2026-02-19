@@ -20,3 +20,6 @@ Analyse de données d’expression génique.
 Lien avec BCI : compréhension des mécanismes biologiques nécessaires
 à la conception d’interfaces biologiques pertinentes.
 → Voir le projet : https://github.com/uruys/Bioinformatics_Lupus_PRDM1
+
+##Traitement de signaux EEG – analyse de l’activité neuronale
+Analyse de données EEG avec Python, qui incluent la visualisation des signaux, extraction de données et comparaison entre différents états cérébraux. Ce projet montre comment les signaux électriques du cerveau peuvent être étudiés. → Voir le projet : https://github.com/uruys/eeg-neuroscience-analyse
