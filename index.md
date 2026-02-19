@@ -1,5 +1,3 @@
-## Rûmeysa Can
-
 
 # Profil académique
 Étudiante en Licence 3 Sciences de la Vie  
