@@ -23,3 +23,8 @@ Lien avec BCI : compréhension des mécanismes biologiques nécessaires
 
 ### Traitement de signaux EEG – analyse de l’activité cérébrale 
 Projet Python d’analyse de signaux EEG pour comparer une activité cérébrale normale et une activité associée à une crise épileptique. Visualisation des signaux, calcul de la puissance et interprétation des différences observées. Ce projet permet de mieux comprendre comment les signaux du cerveau peuvent être analysés en neurosciences. → Voir le projet : https://github.com/uruys/eeg-neuroscience-analyse
+
+### Analyse de données single-cell RNA-seq 
+Utilisation de Python et Scanpy afin d’identifier différents groupes de cellules à partir de leurs profils d’expression génique. 
+Application de méthodes de bioinformatique et de biostatistiques 
+→ Voir le projet : https://github.com/uruys/Analyse-cell-rnaseq
