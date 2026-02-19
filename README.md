@@ -1,4 +1,6 @@
-Portfolio académique – neurosciences computationnelles, bioinformatique et analyse de données biologiques
+Portfolio académique 
+
+ Intérêt: neurosciences computationnelles, bioinformatique et analyse de données biologiques
 
 # Profil académique
 Étudiante en Licence 3 Sciences de la Vie  
