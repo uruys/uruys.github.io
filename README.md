@@ -23,6 +23,6 @@ afin de permettre le contrôle de systèmes et les interactions
 humain-machine.
 
 ## Présentation
-Intérêt marqué pour l’exploitation quantitative de données biologiques complexes, en particulier les signaux neuronaux, à l’interface entre neurosciences, mathématiques appliquées et intelligence artificielle.
+Intérêt marqué pour l’exploitation  de données biologiques, en particulier les signaux neuronaux, à l’interface entre neurosciences, mathématiques appliquées et intelligence artificielle.
 
 
