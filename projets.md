@@ -21,5 +21,5 @@ Lien avec BCI : compréhension des mécanismes biologiques nécessaires
 à la conception d’interfaces biologiques pertinentes.
 → Voir le projet : https://github.com/uruys/Bioinformatics_Lupus_PRDM1
 
-##Traitement de signaux EEG – analyse de l’activité neuronale
-Analyse de données EEG avec Python, qui incluent la visualisation des signaux, extraction de données et comparaison entre différents états cérébraux. Ce projet montre comment les signaux électriques du cerveau peuvent être étudiés. → Voir le projet : https://github.com/uruys/eeg-neuroscience-analyse
+##Traitement de signaux EEG – analyse de l’activité cérébrale 
+Projet Python d’analyse de signaux EEG pour comparer une activité cérébrale normale et une activité associée à une crise épileptique. Visualisation des signaux, calcul de la puissance et interprétation des différences observées. Ce projet permet de mieux comprendre comment les signaux du cerveau peuvent être analysés en neurosciences. → Voir le projet : https://github.com/uruys/eeg-neuroscience-analyse
