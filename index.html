@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Rûmeysa CAN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #1a1a1a; font-size: 15px; line-height: 1.75; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 50px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e5e5e5; }
+    .nav-logo { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 15px; color: #1a1a1a; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    .nav-links a { color: #666; text-decoration: none; font-size: 13px; transition: color .15s; display: flex; align-items: center; gap: .3rem; }
+    .nav-links a:hover { color: #1a1a1a; }
+    main { max-width: 680px; margin: 0 auto; padding: 0 1.5rem; }
+    #home { padding: 100px 0 3.5rem; border-top: none; }
+    .hero-label { font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: #999; margin-bottom: 1rem; }
+    h1 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: .5rem; }
+    .hero-sub { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #666; margin-bottom: 1.4rem; }
+    .hero-desc { font-size: 15px; color: #333; line-height: 1.85; max-width: 600px; margin-bottom: 1.8rem; }
+    .hero-desc strong { font-weight: 500; color: #1a1a1a; }
+    .hero-links { display: flex; gap: .3rem; align-items: center; flex-wrap: wrap; }
+    .hero-links a { font-size: 13.5px; color: #2563eb; text-decoration: none; padding: .3rem .7rem; border-radius: 4px; transition: background .15s; display: flex; align-items: center; gap: .35rem; }
+    .hero-links a:hover { background: #eff6ff; }
+    .hero-sep { color: #e0e0e0; padding: 0 .2rem; font-size: 12px; }
+    section { padding: 4.5rem 0 1rem; border-top: 1px solid #e8e8e8; }
+    h2 { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 1.4rem; margin-bottom: 2.5rem; }
+    .about-text { font-size: 15px; color: #333; line-height: 1.9; margin-bottom: 1.2rem; }
+    .edu-item { padding: 1.8rem 0; }
+    .edu-item + .edu-item { border-top: 1px solid #f0f0f0; }
+    .edu-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+    .edu-logo { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px; overflow: hidden; border: 1px solid #eee; }
+    .edu-logo svg { width: 100%; height: 100%; display: block; }
+    .edu-logo img { width: 100%; height: 100%; object-fit: contain; display:block; }
+    .stage-logo img { width: 100%; height: 100%; object-fit: contain; display:block; }
+    .edu-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; margin-bottom: .15rem; }
+    .edu-sub { font-size: 13px; color: #888; }
+    .ue-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: .5rem; }
+    .ue-table tr { border-bottom: 1px solid #f5f5f3; }
+    .ue-table tr:last-child { border-bottom: none; }
+    .ue-domain { padding: .55rem .8rem .55rem 0; vertical-align: top; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: #bbb; white-space: nowrap; width: 130px; font-weight: 500; }
+    .ue-list { padding: .5rem 0; color: #444; line-height: 1.7; }
+    .ue-list span::after { content: ' · '; color: #ddd; }
+    .ue-list span:last-child::after { content: ''; }
+    .stage-entry { padding: 2.5rem 0; }
+    .stage-entry + .stage-entry { border-top: 1px solid #f0f0f0; }
+    .stage-header { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.2rem; }
+    .stage-logo { width: 52px; height: 52px; flex-shrink: 0; border-radius: 8px; background: #f8f8f8; border: 1px solid #e8e8e8; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .stage-logo svg { width: 100%; height: 100%; display: block; }
+    .stage-header-info { flex: 1; }
+    .stage-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; margin-bottom: .2rem; line-height: 1.3; }
+    .stage-meta { font-size: 12.5px; color: #888; margin-bottom: .25rem; }
+    .stage-tuteur { font-size: 12px; color: #aaa; }
+    .stage-body { display: flex; gap: 2rem; }
+    .stage-missions { flex-shrink: 0; width: 170px; }
+    .stage-missions-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #ccc; margin-bottom: .6rem; font-weight: 500; }
+    .stage-mission { font-size: 12px; color: #666; line-height: 1.6; padding: .2rem 0; border-bottom: 1px solid #f8f8f8; }
+    .stage-mission:last-child { border-bottom: none; }
+    .stage-mission::before { content: '·  '; color: #ddd; }
+    .stage-desc-col { flex: 1; }
+    .stage-desc { font-size: 14px; color: #444; line-height: 1.85; }
+    .stage-desc + .stage-desc { margin-top: .8rem; }
+    .stage-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: 1rem; }
+    .entry { padding: 2.5rem 0; }
+    .entry + .entry { border-top: 1px solid #f0f0f0; }
+    .entry-visual { width: 100%; border-radius: 6px; overflow: hidden; margin-bottom: .75rem; border: 1px solid #e8e8e8; background: #0d0f14; line-height: 0; }
+    .entry-visual svg { display: block; width: 100%; height: auto; }
+    .entry-caption { font-size: 12.5px; color: #888; font-style: italic; margin-bottom: 1.1rem; text-align: center; }
+    .entry-title { font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 1.12rem; color: #1a1a1a; margin-bottom: .5rem; line-height: 1.3; }
+    .entry-meta { font-size: 11.5px; color: #999; letter-spacing: .05em; margin-bottom: .7rem; }
+    .entry-desc { font-size: 14.5px; color: #444; line-height: 1.85; margin-bottom: 1rem; }
+    .entry-result { font-size: 13.5px; color: #16a34a; margin-bottom: 1rem; }
+    .entry-result::before { content: '↳ '; opacity: .7; }
+    .entry-footer { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+    .entry-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .tag { font-size: 11.5px; padding: .18rem .6rem; border-radius: 3px; background: #f5f5f3; color: #555; border: 1px solid #e5e5e5; }
+    .tag-bio { background: #faf5ff; color: #6d28d9; border-color: #e9d5ff; }
+    .tag-code { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+    .tag-neuro { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .entry-link { font-size: 13px; color: #2563eb; text-decoration: none; margin-left: auto; border-bottom: 1px solid transparent; transition: border-color .15s; }
+    .entry-link:hover { border-bottom-color: #2563eb; }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .cert-card { display: flex; align-items: flex-start; gap: .8rem; padding: .9rem 1rem; border: 1px solid #f0f0f0; border-radius: 6px; text-decoration: none; color: inherit; transition: border-color .15s, box-shadow .15s; }
+    .cert-card:hover { border-color: #d0d0d0; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .cert-platform { flex-shrink: 0; width: 32px; height: 32px; border-radius: 6px; background: #f5f5f3; border: 1px solid #ebebeb; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #888; letter-spacing: -.02em; text-align: center; line-height: 1.2; }
+    .cert-info { flex: 1; min-width: 0; }
+    .cert-name { font-size: 13px; font-weight: 500; color: #1a1a1a; line-height: 1.35; margin-bottom: .15rem; }
+    .cert-org { font-size: 11.5px; color: #aaa; }
+    .cert-date { font-size: 10.5px; color: #ccc; margin-top: .1rem; }
+    .cert-arrow { font-size: 11px; color: #ccc; flex-shrink: 0; margin-top: .1rem; }
+    .recherche-entry { padding: 1.8rem 0; }
+    .recherche-entry + .recherche-entry { border-top: 1px solid #f0f0f0; }
+    .recherche-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; margin-bottom: .3rem; }
+    .recherche-subtitle { font-family: 'Source Serif 4', serif; font-style: italic; font-size: .9rem; color: #888; margin-bottom: .8rem; }
+    .recherche-desc { font-size: 14.5px; color: #444; line-height: 1.85; margin-bottom: .8rem; }
+    .recherche-refs { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .skills-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+    .sk-col h4 { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #999; margin-bottom: .7rem; }
+    .sk-col .tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+    .infos { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .info-col h4 { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #999; margin-bottom: .8rem; }
+    .info-item { font-size: 13.5px; color: #333; margin-bottom: .35rem; }
+    .info-dim { color: #999; font-size: 12.5px; }
+    .perso-section { padding: 2rem 0; }
+    .perso-section + .perso-section { border-top: 1px solid #f0f0f0; }
+    .perso-title { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1.05rem; margin-bottom: .5rem; }
+    .perso-desc { font-size: 14.5px; color: #444; line-height: 1.85; max-width: 580px; margin-bottom: .9rem; }
+    .reads { display: flex; flex-direction: column; gap: .35rem; }
+    .read { font-size: 13.5px; color: #333; }
+    .read::before { content: '— '; color: #ccc; }
+    .photos { display: grid; grid-template-columns: repeat(3,1fr); gap: .6rem; margin-top: .8rem; }
+    .book-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; margin-top: .8rem; }
+    .book-grid img { width: 70%; margin: auto; display:block; border-radius:6px; }
+    @media (max-width: 640px) { .book-grid { grid-template-columns: 1fr; } }
+
+    .photo { aspect-ratio: 1; border-radius: 5px; background: #f5f5f3; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; }
+    .photo span { font-size: 11px; color: #bbb; }
+    .contact-block { padding: 1rem 0; }
+    .contact-line { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; font-size: 14.5px; color: #444; }
+    .contact-line a { color: #2563eb; text-decoration: none; }
+    .contact-line a:hover { text-decoration: underline; }
+    .contact-icon { width: 16px; height: 16px; opacity: .45; flex-shrink: 0; }
+    footer { border-top: 1px solid #e8e8e8; padding: 2.5rem 0; margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 13px; color: #999; }
+    footer a { color: #999; text-decoration: none; }
+    footer a:hover { color: #1a1a1a; }
+    .ft-links { display: flex; gap: 1.5rem; }
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; } .nav-links { gap: .8rem; } main { padding: 0 1.2rem; }
+      .skills-cols, .infos { grid-template-columns: 1fr; } .cert-grid { grid-template-columns: 1fr; }
+      .stage-body { flex-direction: column; } .stage-missions { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#home">Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#stages">Stages</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#recherches">Recherches</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-label">Bioinformatique · Neuroinformatique · Neurosciences computationnelles</div>
+    <h1>Portfolio</h1>
+    <p class="hero-sub">Rûmeysa CAN</p>
+<div class="hero-links">
+      <a href="https://github.com/uruys" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <span class="hero-sep">·</span>
+      <a href="https://www.linkedin.com/in/rûmeysa-c-49806a261" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <span class="hero-sep">·</span>
+      <a href="mailto:rmysacn@icloud.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact
+      </a>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="about">
+    <h2>À propos</h2>
+    <p class="about-text">Passionnée par l'analyse de données biologiques à grande échelle, je candidate à des masters en bioinformatique, neurosciences computationnelles, biotechnologies et IA — avec l'ambition d'approfondir l'étude des mécanismes moléculaires du vivant, de l'expression génique aux dynamiques neuronales.</p>
+    <p class="about-text">Mon parcours se construit à l'interface de la biologie, de l'informatique et des mathématiques. J'ai aussi une curiosité personnelle pour ce que les neurosciences disent de nous — comment le cerveau gère l'échec, construit l'identité, anticipe le danger. Une recherche qui mêle Ledoux, Sapolsky, Damasio et un peu de stoïcisme.</p>
+    <p class="about-text">En dehors du laboratoire, la photographie élargit ma façon de voir : elle m'oblige à changer de perspective, à chercher ce qui n'est pas immédiatement visible.</p>
+  </section>
+
+  <!-- FORMATION -->
+  <section id="formation">
+    <h2>Formation</h2>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <div class="edu-logo"><img src="assets/logos/sorbonne-paris-nord.png" alt="Université Sorbonne Paris Nord"></div>
+        <div>
+          <div class="edu-title">Licence Sciences de la Vie</div>
+          <div class="edu-sub">Université Sorbonne Paris Nord</div>
+        </div>
+      </div>
+      <table class="ue-table">
+        <tr>
+          <td class="ue-domain">Bioinformatique</td>
+          <td class="ue-list"><span>Bioinformatique</span><span>Épigénétique</span><span>Outils mathématiques</span><span>Informatique</span></td>
+        </tr>
+        <tr>
+          <td class="ue-domain">Neurosciences</td>
+          <td class="ue-list"><span>Neurosciences</span><span>Physiologie intégrative</span><span>Imagerie médicale</span><span>Biocapteurs</span></td>
+        </tr>
+        <tr>
+          <td class="ue-domain">Physique</td>
+          <td class="ue-list"><span>Mécanique</span><span>Optique</span><span>Ingénierie</span><span>Outils mathématiques</span></td>
+        </tr>
+        <tr>
+          <td class="ue-domain">Biologie</td>
+          <td class="ue-list"><span>Biologie moléculaire</span><span>Immunologie</span><span>Statistiques biologiques</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <div class="edu-logo"><img src="assets/logos/lycee-geoffroy.png" alt="Lycée Geoffroy Saint-Hilaire"></div>
+        <div>
+          <div class="edu-title">Baccalauréat Général</div>
+          <div class="edu-sub">Lycée Geoffroy Saint-Hilaire, Étampes</div>
+        </div>
+      </div>
+      <div class="entry-tags">
+        <span class="tag">Spécialité Mathématiques</span>
+        <span class="tag">Spécialité SVT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGES -->
+  <section id="stages">
+    <h2>Expériences de recherche</h2>
+
+    <div class="stage-entry">
+      <div class="stage-header">
+        <div class="stage-logo"><img src="assets/logos/bme-lab.png" alt="BME Lab"></div>
+        <div class="stage-header-info">
+          <div class="stage-title">BME Lab — Hôpital Saint-Joseph, Paris</div>
+          <div class="stage-meta">Stage L3 · 2026 · EDS-SPHERE · Données cliniques hospitalières</div>
+          <div class="stage-tuteur">Tutrice : Pauline Bian · Responsable : Dr. Joconde Weller</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="stage-missions">
+          <div class="stage-missions-label">Missions</div>
+          <div class="stage-mission">Manipulation données pseudonymisées (EDS-SPHERE, OMOP-CDM)</div>
+          <div class="stage-mission">Extraction cohortes — Codoc Research Hub</div>
+          <div class="stage-mission">Analyses statistiques R / Python</div>
+          <div class="stage-mission">Conformité CNIL / RGPD</div>
+        </div>
+        <div class="stage-desc-col">
+          <p class="stage-desc">Le BME Lab travaille sur l'exploitation des données cliniques hospitalières pour la recherche en santé. J'ai intégré l'équipe sur un projet actif utilisant l'EDS-SPHERE — un entrepôt de données de santé structuré selon le modèle OMOP-CDM, l'un des standards internationaux pour l'interopérabilité des données cliniques.</p>
+          <p class="stage-desc">Mon travail a consisté à extraire et constituer des cohortes via le Codoc Research Hub, à manipuler des données cliniques pseudonymisées, et à conduire des analyses statistiques descriptives sous R et Python. Travailler avec des données réelles dans un cadre hospitalier, c'est apprendre à composer avec la complexité : données hétérogènes, valeurs manquantes, contraintes CNIL/RGPD strictes, modèle de données à comprendre avant de pouvoir poser la moindre question.</p>
+          <p class="stage-desc">C'est là que j'ai vraiment compris ce que "données réelles" signifie — et ce que demande la rigueur méthodologique quand les résultats peuvent avoir un impact clinique.</p>
+          <div class="stage-tags">
+            <span class="tag tag-code">Python</span><span class="tag tag-code">R</span><span class="tag tag-bio">Biostatistiques</span><span class="tag">OMOP-CDM</span><span class="tag">EDS</span><span class="tag">RGPD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-entry">
+      <div class="stage-header">
+        <div class="stage-logo"><img src="assets/logos/neuropsi.png" alt="NeuroPSI"></div>
+        <div class="stage-header-info">
+          <div class="stage-title">NeuroPSI — CNRS, Paris-Saclay</div>
+          <div class="stage-meta">Stage L1 · 2023 · Équipe Daniel Shulz · Traitement sensoriel</div>
+          <div class="stage-tuteur">Tuteur : Anton Dogadov · Équipe : Daniel Shulz</div>
+        </div>
+      </div>
+      <div class="stage-body">
+        <div class="stage-missions">
+          <div class="stage-missions-label">Missions</div>
+          <div class="stage-mission">Pipeline tracking DeepLabCut</div>
+          <div class="stage-mission">Analyse trajectoires MATLAB</div>
+          <div class="stage-mission">Traitement signaux électrophysiologiques</div>
+          <div class="stage-mission">Analyse imagerie GCaMP</div>
+        </div>
+        <div class="stage-desc-col">
+          <p class="stage-desc">NeuroPSI est un institut de neurosciences du CNRS dédié à l'étude des mécanismes cellulaires et intégratifs du système nerveux. J'y ai rejoint l'équipe de Daniel Shulz, qui travaille sur le traitement sensoriel dans le cortex somatosensoriel de la souris — comment le cerveau intègre les informations tactiles transmises par les moustaches.</p>
+          <p class="stage-desc">J'ai mis en place un pipeline de tracking comportemental par deep learning avec DeepLabCut pour annoter automatiquement les mouvements de moustaches sur des vidéos d'expériences — des milliers de frames, avec extraction des coordonnées de keypoints frame par frame. J'ai ensuite analysé ces trajectoires sous MATLAB : calcul d'angles, de vitesse, d'amplitude de mouvement.</p>
+          <p class="stage-desc">En parallèle, j'ai traité des signaux électrophysiologiques — filtrage, extraction de caractéristiques, visualisation — et analysé des données d'imagerie calcique biphotonique GCaMP issues du cortex somatosensoriel murin. Voir l'activité neuronale en temps réel dans un cerveau vivant, corrélée aux mouvements comportementaux détectés automatiquement — c'est ce stage qui a ancré mon intérêt pour les neurosciences computationnelles.</p>
+          <div class="stage-tags">
+            <span class="tag tag-code">Python</span><span class="tag tag-code">MATLAB</span><span class="tag tag-neuro">DeepLabCut</span><span class="tag tag-neuro">Électrophysiologie</span><span class="tag tag-neuro">GCaMP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projects">
+    <h2>Projets</h2>
+
+    <div class="entry">
+      <div class="entry-visual">
+        <svg viewBox="0 0 680 295" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="295" fill="#0d0f14"/>
+          <text x="340" y="24" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="11">Volcano plot — Expression différentielle RNA-seq (Lupus vs Contrôle)</text>
+          <line x1="80" y1="248" x2="600" y2="248" stroke="#1a1f2e" stroke-width="1.2"/><line x1="80" y1="38" x2="80" y2="248" stroke="#1a1f2e" stroke-width="1.2"/>
+          <text x="340" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9">log₂(Fold Change)</text>
+          <text x="32" y="148" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9" transform="rotate(-90,32,148)">−log₁₀(p-adj)</text>
+          <line x1="232" y1="38" x2="232" y2="248" stroke="#1a1f2e" stroke-width="1" stroke-dasharray="4,3"/><line x1="448" y1="38" x2="448" y2="248" stroke="#1a1f2e" stroke-width="1" stroke-dasharray="4,3"/><line x1="80" y1="148" x2="600" y2="148" stroke="#1a1f2e" stroke-width="1" stroke-dasharray="4,3"/>
+          <circle cx="210" cy="185" r="2.5" fill="#1e2535"/><circle cx="255" cy="194" r="2.5" fill="#1e2535"/><circle cx="305" cy="178" r="2.5" fill="#1e2535"/><circle cx="350" cy="190" r="2.5" fill="#1e2535"/><circle cx="285" cy="202" r="2.5" fill="#1e2535"/><circle cx="335" cy="180" r="2.5" fill="#1e2535"/><circle cx="268" cy="170" r="2.5" fill="#1e2535"/><circle cx="390" cy="196" r="2.5" fill="#1e2535"/>
+          <circle cx="130" cy="118" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="112" cy="95" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="152" cy="108" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="118" cy="80" r="3" fill="#7eb8f7" opacity=".75"/><circle cx="165" cy="125" r="3" fill="#7eb8f7" opacity=".75"/><circle cx="98" cy="110" r="3" fill="#7eb8f7" opacity=".65"/><circle cx="178" cy="100" r="3" fill="#7eb8f7" opacity=".65"/>
+          <circle cx="510" cy="108" r="3" fill="#f472b6" opacity=".85"/><circle cx="535" cy="88" r="3" fill="#f472b6" opacity=".85"/><circle cx="492" cy="125" r="3" fill="#f472b6" opacity=".85"/><circle cx="558" cy="95" r="3" fill="#f472b6" opacity=".75"/><circle cx="522" cy="118" r="3" fill="#f472b6" opacity=".75"/><circle cx="548" cy="72" r="3" fill="#f472b6" opacity=".7"/><circle cx="502" cy="95" r="3" fill="#f472b6" opacity=".65"/>
+          <circle cx="585" cy="46" r="6.5" fill="#67e8b0"/><line x1="585" y1="52" x2="578" y2="68" stroke="#67e8b0" stroke-width="1" opacity=".5"/><text x="558" y="80" fill="#67e8b0" font-family="monospace" font-size="9.5" font-weight="bold">PRDM1</text>
+          <circle cx="98" cy="282" r="4" fill="#7eb8f7" opacity=".8"/><text x="107" y="286" fill="#4a5570" font-family="monospace" font-size="8.5">down-régulé</text>
+          <circle cx="210" cy="282" r="4" fill="#f472b6" opacity=".8"/><text x="219" y="286" fill="#4a5570" font-family="monospace" font-size="8.5">up-régulé</text>
+          <circle cx="322" cy="282" r="4.5" fill="#67e8b0"/><text x="331" y="286" fill="#67e8b0" font-family="monospace" font-size="8.5">PRDM1 — gène hub</text>
+        </svg>
+      </div>
+      <div class="entry-caption">Volcano plot — gènes différentiellement exprimés dans le lupus. PRDM1 identifié comme gène hub sur-exprimé.</div>
+      <div class="entry-meta">Bioinformatique · Génomique · R</div>
+      <div class="entry-title">PRDM1 & Lupus — Analyse différentielle de l'expression génique</div>
+      <div class="entry-desc">Quels gènes sont dérégulés dans le lupus érythémateux, et quel rôle joue PRDM1 dans cette pathologie auto-immune ? Analyse différentielle RNA-seq avec DESeq2, clustering hiérarchique, heatmaps et réseau d'interactions protéine-protéine via STRING.</div>
+      <div class="entry-result">PRDM1 identifié comme gène hub sur-exprimé — rôle central dans la différenciation des plasmocytes</div>
+      <div class="entry-footer">
+        <div class="entry-tags"><span class="tag tag-bio">Bioinformatique</span><span class="tag tag-code">R</span><span class="tag">DESeq2</span><span class="tag">STRING</span><span class="tag">RNA-seq</span></div>
+        <a href="https://github.com/uruys/Bioinformatics_Lupus_PRDM1" class="entry-link" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-visual">
+        <svg viewBox="0 0 680 310" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="310" fill="#0d0f14"/>
+          <text x="340" y="24" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="11">UMAP — Single-cell RNA-seq · Clustering Leiden · 6 populations</text>
+          <text x="340" y="292" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9">UMAP1</text>
+          <text x="22" y="160" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9" transform="rotate(-90,22,160)">UMAP2</text>
+          <ellipse cx="172" cy="105" rx="32" ry="24" fill="#7eb8f7" opacity=".08"/>
+          <circle cx="165" cy="100" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="180" cy="94" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="188" cy="108" r="3" fill="#7eb8f7" opacity=".85"/><circle cx="162" cy="114" r="3" fill="#7eb8f7" opacity=".75"/><circle cx="176" cy="120" r="3" fill="#7eb8f7" opacity=".75"/><circle cx="156" cy="97" r="3" fill="#7eb8f7" opacity=".65"/><circle cx="192" cy="98" r="3" fill="#7eb8f7" opacity=".65"/><circle cx="170" cy="86" r="3" fill="#7eb8f7" opacity=".65"/>
+          <text x="172" y="140" text-anchor="middle" fill="#7eb8f7" font-family="monospace" font-size="9">B-cells</text>
+          <ellipse cx="400" cy="90" rx="36" ry="26" fill="#67e8b0" opacity=".07"/>
+          <circle cx="392" cy="84" r="3" fill="#67e8b0" opacity=".85"/><circle cx="408" cy="90" r="3" fill="#67e8b0" opacity=".85"/><circle cx="382" cy="96" r="3" fill="#67e8b0" opacity=".85"/><circle cx="416" cy="80" r="3" fill="#67e8b0" opacity=".75"/><circle cx="402" cy="106" r="3" fill="#67e8b0" opacity=".75"/><circle cx="376" cy="88" r="3" fill="#67e8b0" opacity=".65"/><circle cx="422" cy="95" r="3" fill="#67e8b0" opacity=".65"/><circle cx="396" cy="74" r="3" fill="#67e8b0" opacity=".65"/><circle cx="425" cy="79" r="3" fill="#67e8b0" opacity=".6"/>
+          <text x="400" y="130" text-anchor="middle" fill="#67e8b0" font-family="monospace" font-size="9">T-cells</text>
+          <ellipse cx="545" cy="178" rx="28" ry="20" fill="#a78bfa" opacity=".08"/>
+          <circle cx="538" cy="172" r="3" fill="#a78bfa" opacity=".85"/><circle cx="552" cy="168" r="3" fill="#a78bfa" opacity=".85"/><circle cx="548" cy="185" r="3" fill="#a78bfa" opacity=".85"/><circle cx="534" cy="186" r="3" fill="#a78bfa" opacity=".75"/><circle cx="558" cy="176" r="3" fill="#a78bfa" opacity=".65"/>
+          <text x="545" y="212" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="9">NK cells</text>
+          <ellipse cx="252" cy="215" rx="30" ry="22" fill="#f7a76e" opacity=".08"/>
+          <circle cx="245" cy="210" r="3" fill="#f7a76e" opacity=".85"/><circle cx="260" cy="214" r="3" fill="#f7a76e" opacity=".85"/><circle cx="248" cy="223" r="3" fill="#f7a76e" opacity=".85"/><circle cx="265" cy="206" r="3" fill="#f7a76e" opacity=".75"/><circle cx="240" cy="220" r="3" fill="#f7a76e" opacity=".65"/><circle cx="262" cy="225" r="3" fill="#f7a76e" opacity=".65"/>
+          <text x="252" y="250" text-anchor="middle" fill="#f7a76e" font-family="monospace" font-size="9">Monocytes</text>
+          <ellipse cx="385" cy="215" rx="24" ry="18" fill="#f472b6" opacity=".08"/>
+          <circle cx="378" cy="210" r="3" fill="#f472b6" opacity=".85"/><circle cx="392" cy="216" r="3" fill="#f472b6" opacity=".85"/><circle cx="376" cy="222" r="3" fill="#f472b6" opacity=".75"/><circle cx="396" cy="208" r="3" fill="#f472b6" opacity=".65"/>
+          <text x="385" y="246" text-anchor="middle" fill="#f472b6" font-family="monospace" font-size="9">DC</text>
+          <ellipse cx="132" cy="215" rx="22" ry="16" fill="#fbbf24" opacity=".08"/>
+          <circle cx="126" cy="210" r="3" fill="#fbbf24" opacity=".85"/><circle cx="138" cy="216" r="3" fill="#fbbf24" opacity=".85"/><circle cx="130" cy="223" r="3" fill="#fbbf24" opacity=".75"/>
+          <text x="132" y="244" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="9">Neutro</text>
+        </svg>
+      </div>
+      <div class="entry-caption">UMAP — 6 populations cellulaires identifiées par clustering Leiden. Hétérogénéité transcriptomique inter-cluster significative.</div>
+      <div class="entry-meta">Bioinformatique · Single-cell · Python</div>
+      <div class="entry-title">Single-cell RNA-seq — Identification automatique de populations cellulaires</div>
+      <div class="entry-desc">Peut-on identifier automatiquement des sous-populations cellulaires à partir des profils transcriptomiques individuels ? Pipeline complet scRNA-seq : contrôle qualité, normalisation, réduction dimensionnelle par PCA, clustering Leiden et projection UMAP avec annotation des clusters.</div>
+      <div class="entry-result">6 populations cellulaires identifiées — hétérogénéité transcriptomique inter-cluster significative</div>
+      <div class="entry-footer">
+        <div class="entry-tags"><span class="tag tag-bio">scRNA-seq</span><span class="tag tag-code">Python</span><span class="tag">Scanpy</span><span class="tag">UMAP</span><span class="tag">Leiden</span></div>
+        <a href="https://github.com/uruys/Analyse-cell-rnaseq" class="entry-link" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-visual">
+        <svg viewBox="0 0 680 285" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="285" fill="#0d0f14"/>
+          <text x="340" y="24" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="11">Signal EEG + Puissance spectrale (Normal vs Épileptique)</text>
+          <text x="88" y="60" fill="#3a4255" font-family="monospace" font-size="9">Normal</text>
+          <line x1="80" y1="118" x2="620" y2="118" stroke="#1a1f2e" stroke-width="1"/>
+          <polyline points="112,80 148,77 184,83 220,75 256,81 292,78 328,82 364,76 400,81 436,77 472,82 508,77 544,81 580,76 616,79" fill="none" stroke="#7eb8f7" stroke-width="1.5" opacity=".85"/>
+          <text x="88" y="148" fill="#3a4255" font-family="monospace" font-size="9">Épilepsie</text>
+          <polyline points="112,162 148,159 178,165 205,122 216,192 232,158 268,156 298,160 328,118 338,196 355,158 388,155 418,159 445,116 456,198 472,158 505,156 538,160 562,114 574,200 590,158 616,155" fill="none" stroke="#f472b6" stroke-width="1.5" opacity=".9"/>
+          <line x1="205" y1="122" x2="205" y2="103" stroke="#f472b6" stroke-width="1" stroke-dasharray="2,2" opacity=".7"/>
+          <text x="210" y="100" fill="#f472b6" font-family="monospace" font-size="8">spike</text>
+          <text x="340" y="228" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9">Puissance par bande (δ  θ  α  β  γ)</text>
+          <rect x="120" y="210" width="44" height="13" fill="#7eb8f7" opacity=".45" rx="2"/><rect x="180" y="202" width="44" height="21" fill="#7eb8f7" opacity=".5" rx="2"/><rect x="240" y="210" width="44" height="13" fill="#7eb8f7" opacity=".45" rx="2"/><rect x="300" y="206" width="44" height="17" fill="#7eb8f7" opacity=".42" rx="2"/><rect x="360" y="212" width="44" height="11" fill="#7eb8f7" opacity=".38" rx="2"/>
+          <rect x="120" y="217" width="44" height="6" fill="#f472b6" opacity=".45" rx="2"/><rect x="180" y="208" width="44" height="15" fill="#f472b6" opacity=".5" rx="2"/><rect x="240" y="195" width="44" height="28" fill="#f472b6" opacity=".55" rx="2"/><rect x="300" y="186" width="44" height="37" fill="#f472b6" opacity=".6" rx="2"/><rect x="360" y="178" width="44" height="45" fill="#f472b6" opacity=".65" rx="2"/>
+          <text x="142" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">δ</text><text x="202" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">θ</text><text x="262" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">α</text><text x="322" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">β</text><text x="382" y="270" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">γ</text>
+          <rect x="462" y="210" width="9" height="7" fill="#7eb8f7" opacity=".5" rx="1"/><text x="475" y="218" fill="#4a5570" font-family="monospace" font-size="8.5">Normal</text>
+          <rect x="462" y="226" width="9" height="7" fill="#f472b6" opacity=".55" rx="1"/><text x="475" y="234" fill="#4a5570" font-family="monospace" font-size="8.5">Épileptique</text>
+        </svg>
+      </div>
+      <div class="entry-caption">Signal EEG et puissance spectrale par bandes — augmentation nette dans les bandes β/γ lors des crises.</div>
+      <div class="entry-meta">Neurosciences computationnelles · Traitement du signal · Python</div>
+      <div class="entry-title">Analyse EEG — Activité cérébrale normale vs crise épileptique</div>
+      <div class="entry-desc">Comment l'activité électrique cérébrale se différencie-t-elle entre un sujet sain et un patient en crise ? Traitement de signaux EEG multi-canaux, comparaison de la puissance spectrale par bandes de fréquences (δ, θ, α, β, γ) et visualisation des événements épileptiques.</div>
+      <div class="entry-result">Augmentation significative dans les bandes bêta/gamma lors des crises — patterns reproductibles inter-sujets</div>
+      <div class="entry-footer">
+        <div class="entry-tags"><span class="tag tag-neuro">Neurosciences</span><span class="tag tag-code">Python</span><span class="tag">EEG</span><span class="tag">Analyse spectrale</span></div>
+        <a href="https://github.com/uruys/eeg-neuroscience-analyse" class="entry-link" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-visual">
+        <svg viewBox="0 0 680 265" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="265" fill="#0d0f14"/>
+          <text x="340" y="24" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="11">Charge virale SARS-CoV-2 dans les eaux usées (copies/L)</text>
+          <line x1="65" y1="222" x2="615" y2="222" stroke="#1a1f2e" stroke-width="1.2"/><line x1="65" y1="38" x2="65" y2="222" stroke="#1a1f2e" stroke-width="1.2"/>
+          <text x="340" y="246" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9">Semaines</text>
+          <text x="28" y="132" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="9" transform="rotate(-90,28,132)">Copies / L</text>
+          <polyline points="80,208 120,196 162,178 205,152 248,126 292,98 335,78 378,60 422,73 465,100 508,132 548,160 586,182 614,200" fill="none" stroke="#7eb8f7" stroke-width="2" opacity=".9"/>
+          <polygon points="80,208 120,196 162,178 205,152 248,126 292,98 335,78 378,60 422,73 465,100 508,132 548,160 586,182 614,200 614,222 80,222" fill="#7eb8f7" opacity=".06"/>
+          <circle cx="80" cy="208" r="3.5" fill="#7eb8f7"/><circle cx="120" cy="196" r="3.5" fill="#7eb8f7"/><circle cx="162" cy="178" r="3.5" fill="#7eb8f7"/><circle cx="205" cy="152" r="3.5" fill="#7eb8f7"/><circle cx="248" cy="126" r="3.5" fill="#7eb8f7"/><circle cx="292" cy="98" r="3.5" fill="#7eb8f7"/>
+          <circle cx="335" cy="78" r="3.5" fill="#f472b6"/><circle cx="378" cy="60" r="5" fill="#f472b6"/><circle cx="422" cy="73" r="3.5" fill="#f472b6"/><circle cx="465" cy="100" r="3.5" fill="#f472b6"/>
+          <circle cx="508" cy="132" r="3.5" fill="#7eb8f7"/><circle cx="548" cy="160" r="3.5" fill="#7eb8f7"/><circle cx="586" cy="182" r="3.5" fill="#7eb8f7"/>
+          <line x1="378" y1="60" x2="378" y2="40" stroke="#f472b6" stroke-width="1" stroke-dasharray="3,2" opacity=".6"/>
+          <text x="386" y="38" fill="#f472b6" font-family="monospace" font-size="9">pic Omicron</text>
+          <polyline points="120,200 205,158 292,102 378,63 465,98 548,158 614,198" fill="none" stroke="#67e8b0" stroke-width="1.5" stroke-dasharray="6,3" opacity=".75"/>
+          <text x="478" y="84" fill="#67e8b0" font-family="monospace" font-size="8.5">moy. mobile (4 sem.)</text>
+          <rect x="318" y="36" width="105" height="26" fill="none" stroke="#fbbf24" stroke-width=".8" stroke-dasharray="3,2" opacity=".4" rx="3"/>
+          <text x="370" y="32" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="8">signal ~5j avant cas cliniques</text>
+        </svg>
+      </div>
+      <div class="entry-caption">Charge virale mesurée par biocapteurs dans les eaux usées — signal précurseur ~5 jours avant les vagues cliniques officielles.</div>
+      <div class="entry-meta">Biostatistiques · Épidémiologie computationnelle · Python</div>
+      <div class="entry-title">Surveillance épidémiologique du SARS-CoV-2 par biocapteurs</div>
+      <div class="entry-desc">Les biocapteurs dans les eaux usées permettent-ils d'anticiper les vagues virales ? Traitement de séries temporelles de charge virale, lissage par moyenne mobile, corrélation avec les cas cliniques officiels et visualisation de la dynamique de propagation.</div>
+      <div class="entry-result">Signal précurseur de ~5 jours par rapport aux cas cliniques — potentiel de surveillance précoce démontré</div>
+      <div class="entry-footer">
+        <div class="entry-tags"><span class="tag tag-neuro">Épidémiologie comp.</span><span class="tag tag-code">Python</span><span class="tag">Pandas</span><span class="tag">Biocapteurs</span></div>
+        <a href="https://github.com/uruys/Projet_Biocapteurs" class="entry-link" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-visual">
+        <svg viewBox="0 0 680 270" xmlns="http://www.w3.org/2000/svg">
+          <rect width="680" height="270" fill="#0d0f14"/>
+          <text x="340" y="24" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="11">DeepLabCut — Keypoints + Métriques cinématiques (angle moustache)</text>
+          <ellipse cx="230" cy="150" rx="82" ry="65" fill="none" stroke="#1a1f2e" stroke-width="1.5"/>
+          <circle cx="162" cy="96" r="21" fill="none" stroke="#1a1f2e" stroke-width="1.2"/><circle cx="298" cy="96" r="21" fill="none" stroke="#1a1f2e" stroke-width="1.2"/>
+          <circle cx="230" cy="196" r="13" fill="none" stroke="#1a1f2e" stroke-width="1.2"/>
+          <line x1="220" y1="193" x2="130" y2="168" stroke="#67e8b0" stroke-width="2" opacity=".9"/><line x1="218" y1="193" x2="122" y2="183" stroke="#67e8b0" stroke-width="2" opacity=".9"/><line x1="218" y1="199" x2="124" y2="199" stroke="#67e8b0" stroke-width="1.8" opacity=".7"/>
+          <line x1="240" y1="193" x2="330" y2="168" stroke="#a78bfa" stroke-width="2" opacity=".9"/><line x1="242" y1="193" x2="338" y2="183" stroke="#a78bfa" stroke-width="2" opacity=".9"/><line x1="242" y1="199" x2="336" y2="199" stroke="#a78bfa" stroke-width="1.8" opacity=".7"/>
+          <circle cx="130" cy="168" r="4" fill="#67e8b0"/><circle cx="122" cy="183" r="4" fill="#67e8b0"/><circle cx="124" cy="199" r="4" fill="#67e8b0"/>
+          <circle cx="330" cy="168" r="4" fill="#a78bfa"/><circle cx="338" cy="183" r="4" fill="#a78bfa"/><circle cx="336" cy="199" r="4" fill="#a78bfa"/>
+          <text x="108" y="165" fill="#67e8b0" font-family="monospace" font-size="8">w1</text><text x="102" y="182" fill="#67e8b0" font-family="monospace" font-size="8">w2</text><text x="104" y="200" fill="#67e8b0" font-family="monospace" font-size="8">w3</text>
+          <text x="338" y="165" fill="#a78bfa" font-family="monospace" font-size="8">w4</text><text x="345" y="182" fill="#a78bfa" font-family="monospace" font-size="8">w5</text><text x="343" y="200" fill="#a78bfa" font-family="monospace" font-size="8">w6</text>
+          <line x1="390" y1="35" x2="390" y2="250" stroke="#1a1f2e" stroke-width="1"/>
+          <line x1="400" y1="240" x2="665" y2="240" stroke="#1a1f2e" stroke-width="1"/><line x1="400" y1="42" x2="400" y2="240" stroke="#1a1f2e" stroke-width="1"/>
+          <text x="532" y="256" text-anchor="middle" fill="#3a4255" font-family="monospace" font-size="8.5">Frames</text>
+          <polyline points="405,158 428,144 452,128 476,112 500,104 524,116 548,132 572,145 596,134 620,118 644,108 660,122" fill="none" stroke="#67e8b0" stroke-width="1.5" opacity=".85"/>
+          <polyline points="405,170 428,157 452,142 476,156 500,168 524,154 548,140 572,154 596,164 620,149 644,136 660,150" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity=".85"/>
+          <circle cx="418" cy="262" r="3" fill="#67e8b0"/><text x="425" y="265" fill="#67e8b0" font-family="monospace" font-size="8">gauche</text>
+          <circle cx="498" cy="262" r="3" fill="#a78bfa"/><text x="505" y="265" fill="#a78bfa" font-family="monospace" font-size="8">droite</text>
+        </svg>
+      </div>
+      <div class="entry-caption">Tracking automatique des keypoints et extraction des angles de moustaches frame par frame — NeuroPSI, CNRS Paris-Saclay.</div>
+      <div class="entry-meta">Neurosciences computationnelles · Deep learning · Python / MATLAB</div>
+      <div class="entry-title">Tracking comportemental automatisé — moustaches de souris (DeepLabCut)</div>
+      <div class="entry-desc">Comment quantifier automatiquement les mouvements de moustaches chez la souris pour étudier le traitement sensoriel du cortex somatosensoriel ? Pipeline de tracking par deep learning, extraction de métriques cinématiques (angle, vitesse, amplitude). Réalisé au NeuroPSI, CNRS.</div>
+      <div class="entry-result">Réduction de ~90% du temps d'annotation manuelle — métriques cinématiques extraites sur l'ensemble des vidéos</div>
+      <div class="entry-footer">
+        <div class="entry-tags"><span class="tag tag-neuro">Neurosciences comp.</span><span class="tag tag-code">Python</span><span class="tag tag-code">MATLAB</span><span class="tag">DeepLabCut</span></div>
+        <a href="https://github.com/uruys/computational-neuroscience-analysis" class="entry-link" target="_blank">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="skills">
+    <h2>Compétences</h2>
+    <div class="skills-cols">
+      <div class="sk-col">
+        <h4>Programmation</h4>
+        <div class="tags">
+          <span class="tag tag-code">Python</span><span class="tag tag-code">R</span><span class="tag tag-code">MATLAB</span><span class="tag tag-code">SQL</span><span class="tag">Pandas · NumPy</span><span class="tag">Matplotlib</span><span class="tag">tidyverse · ggplot2</span><span class="tag">Linux</span>
+        </div>
+      </div>
+      <div class="sk-col">
+        <h4>Bioinformatique &amp; Neuro</h4>
+        <div class="tags">
+          <span class="tag tag-bio">Scanpy</span><span class="tag tag-bio">DESeq2</span><span class="tag tag-neuro">DeepLabCut</span><span class="tag tag-neuro">Morpheus</span><span class="tag">STRING · Reactome</span><span class="tag">NCBI · Ensembl</span><span class="tag">UniProt · GeneCards</span>
+        </div>
+      </div>
+      <div class="sk-col">
+        <h4>Labo</h4>
+        <div class="tags">
+          <span class="tag">Culture cellulaire</span><span class="tag">PCR</span><span class="tag">Spectrophotométrie</span><span class="tag">Chromatographie</span><span class="tag">Microscopie photonique</span><span class="tag">Confocale</span>
+        </div>
+      </div>
+    </div>
+    <div class="infos">
+      <div class="info-col">
+        <h4>Langues</h4>
+        <div class="info-item">Français &amp; Turc <span class="info-dim">— bilingue</span></div>
+        <div class="info-item">Anglais <span class="info-dim">— C1</span></div>
+        <div class="info-item">Espagnol <span class="info-dim">— B2</span></div>
+        <div class="info-item">Russe <span class="info-dim">— A1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <a class="cert-card" href="https://coursera.org/verify/TH0C8OXJ3HGD" target="_blank">
+        <div class="cert-platform" style="background:#f0f4ff;color:#2563eb;border-color:#dbeafe;">UW</div>
+        <div class="cert-info"><div class="cert-name">Computational Neuroscience</div><div class="cert-org">University of Washington · Coursera</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://coursera.org/verify/ZHX2R66XPODU" target="_blank">
+        <div class="cert-platform" style="background:#fff1f2;color:#e11d48;border-color:#fecdd3;">DL<br>.AI</div>
+        <div class="cert-info"><div class="cert-name">Calculus for Machine Learning and Data Science</div><div class="cert-org">DeepLearning.AI · Coursera</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://coursera.org/verify/M47QO9REWSTR" target="_blank">
+        <div class="cert-platform" style="background:#faf5ff;color:#7c3aed;border-color:#e9d5ff;">UoE</div>
+        <div class="cert-info"><div class="cert-name">Philosophy &amp; the Sciences: Intro to Philosophy of Cognitive Sciences</div><div class="cert-org">University of Edinburgh · Coursera</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://coursera.org/verify/KVDKPUUGDV26" target="_blank">
+        <div class="cert-platform" style="background:#fff7ed;color:#c2410c;border-color:#fed7aa;">FED</div>
+        <div class="cert-info"><div class="cert-name">English Advanced C1</div><div class="cert-org">Univ. Federico II Naples · Coursera</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://courses.cognitiveclass.ai/certificates/56117e580a0a4deea692c45ce0ff9322" target="_blank">
+        <div class="cert-platform" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0;">IBM</div>
+        <div class="cert-info"><div class="cert-name">SQL and Relational Databases 101</div><div class="cert-org">Cognitive Class · IBM</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://courses.cognitiveclass.ai/certificates/9e403759d60b4206bef1dd81e3221094" target="_blank">
+        <div class="cert-platform" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0;">IBM</div>
+        <div class="cert-info"><div class="cert-name">Statistics 101</div><div class="cert-org">Cognitive Class · IBM</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://fun-mooc.fr" target="_blank">
+        <div class="cert-platform" style="background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe;">FUN</div>
+        <div class="cert-info"><div class="cert-name">Python — fondamentaux aux concepts avancés</div><div class="cert-org">Univ. Côte d'Azur &amp; Inria · FUN-MOOC</div><div class="cert-date">Fév. 2026</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+      <a class="cert-card" href="https://app.pix.fr/verification-certificat" target="_blank">
+        <div class="cert-platform" style="background:#fffbeb;color:#b45309;border-color:#fde68a;">PIX</div>
+        <div class="cert-info"><div class="cert-name">Certification Pix — 235 points</div><div class="cert-org">GIP Pix · Code : P-CYFQ2XKM</div><div class="cert-date">Mai 2021</div></div>
+        <div class="cert-arrow">↗</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- RECHERCHES PERSONNELLES -->
+  <section id="recherches">
+    <h2>Recherches personnelles</h2>
+    <div class="recherche-entry">
+      <div class="recherche-title">Cerveau, échec et identité</div>
+      <div class="recherche-subtitle">Neurosciences · Philosophie · Stoïcisme</div>
+      <p class="recherche-desc">Une recherche personnelle sur ce que le cerveau fait réellement de l'échec — entre neurosciences et philosophie. L'amygdale qui réagit avant la pensée (LeDoux), le stress chronique qui réduit les capacités cognitives (Sapolsky), les émotions qui participent à la construction du soi (Damasio). Et en face : le stoïcisme, Montaigne, Nietzsche, Beckett.</p>
+      <p class="recherche-desc">L'échec active la peur, teste l'identité, révèle nos mécanismes de protection — et offre une possibilité rare : celle de se raconter autrement.</p>
+      <div class="recherche-refs">
+        <span class="tag">LeDoux</span><span class="tag">Sapolsky</span><span class="tag">Damasio</span><span class="tag">Stoïcisme</span><span class="tag">Montaigne</span><span class="tag">Nietzsche</span><span class="tag">Beckett</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EN DEHORS -->
+  <section id="perso">
+    <h2>En dehors du labo</h2>
+    <div class="perso-section">
+      <div class="perso-title">Lectures &amp; curiosités scientifiques</div>
+      <p class="perso-desc">J'aime lire en dehors du cursus — neurosciences, philosophie de l'esprit, vulgarisation. Ce qui me passionne : comprendre le cerveau depuis les angles que le cours n'aborde pas.</p>
+      <div class="book-grid">
+        <img src="assets/lecture/livre-01.png" alt="Activer ses neurones — Steve Masson">
+        <img src="assets/lecture/livre-02.png" alt="Sciences & éthique — Gérard Toulouse">
+        <img src="assets/lecture/livre-03.png" alt="Quelle éthique pour les sciences ? — Véricourt & Toulouse">
+        <img src="assets/lecture/livre-04.png" alt="L’intelligence naturelle et l’éveil de la conscience — Antonio Damasio">
+      </div>
+        <div class="read"></div>
+        <div class="read"></div>
+        <div class="read">Articles arXiv &amp; bioRxiv — connectomique, IA et neurosciences</div>
+      </div>
+    </div>
+    <div class="perso-section">
+      <div class="perso-title">Photographie</div>
+      <p class="perso-desc"></p>
+      <div class="photos">
+        <div class="photo"><span>photo à venir</span></div>
+        <div class="photo"><span>photo à venir</span></div>
+        <div class="photo"><span>photo à venir</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-block">
+      <div class="contact-line">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:rmysacn@icloud.com">rmysacn@icloud.com</a>
+      </div>
+      <div class="contact-line">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="https://github.com/uruys" target="_blank">github.com/uruys</a>
+      </div>
+      <div class="contact-line">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="https://www.linkedin.com/in/rûmeysa-c-49806a261" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Rûmeysa CAN</span>
+    <div class="ft-links">
+      <a href="mailto:rmysacn@icloud.com">Email</a>
+      <a href="https://github.com/uruys" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/rûmeysa-c-49806a261" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
